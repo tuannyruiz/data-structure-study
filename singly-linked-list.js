@@ -35,16 +35,16 @@ class SinglyLinkedList {
     this.length = 0
   }
 
-  push(val) {
+  push (val) {
     var newNode = new Node(val);
 
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-    } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
     }
+
+    this.tail.next = newNode;
+    this.tail = newNode;
   
     this.length++;
 
@@ -59,7 +59,7 @@ class SinglyLinkedList {
   //   }
   // }
 
-  pop() {
+  pop () {
     if (!this.head) {
       return undefined;
     }
@@ -76,12 +76,45 @@ class SinglyLinkedList {
     this.tail.next = null;
     this.length--;
 
-    if (this.lengt === 0) {
+    if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
     return current;
+  }
+
+  shift () {
+    if (!this.head) {
+      return undefined;
+    }
+
+    var oldHead = this.head;
+    this.head = oldHead.next;
+
+    this.length--;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return oldHead;
+  }
+
+  unshift (val) {
+    var newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } 
+
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+
+    return this;
   }
 }
 
@@ -89,4 +122,4 @@ let link = new SinglyLinkedList();
 link.push(1);
 link.push(10);
 link.push(15);
-console.log(link.pop());
+console.log(link.unshift('oi'));
