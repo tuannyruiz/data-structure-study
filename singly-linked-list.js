@@ -134,15 +134,40 @@ class SinglyLinkedList {
     return current;
   }
 
-  set (index, newValue) {
+  set (index, val) {
     let foundNode = this.get(index);
 
     if (foundNode) {
-      foundNode.val = newValue;
+      foundNode.val = val;
       return true;
     }
     
     return false;
+  }
+
+  insert (index, val) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+    
+    if (index === 0) {
+      return !!this.unshift(val);
+    }
+    
+    if (index === this.length) {
+      return !!this.push(val);
+    }
+    
+    let newNode = new Node(val); 
+
+    let previous = this.get(index - 1);
+    let temporary = previous.next;
+
+    previous.next = newNode;
+    newNode.next = temporary;
+    this.length++;
+
+    return true;
   }
 }
 
@@ -150,3 +175,9 @@ let link = new SinglyLinkedList();
 link.push(1);
 link.push(10);
 link.push(15);
+console.log(link.get(1));
+link.insert(1, 500);
+console.log(link.get(1));
+console.log(link.get(2));
+console.log(link.get(3));
+
