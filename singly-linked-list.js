@@ -117,10 +117,28 @@ class SinglyLinkedList {
 
     return this;
   }
+
+  get (index) {
+    if (index >= this.length || index < 0) {
+      return null;
+    }
+
+    let counter = 0;
+    let current = this.head;
+
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+
+    return current;
+  }
 }
 
 let link = new SinglyLinkedList();
 link.push(1);
 link.push(10);
 link.push(15);
-console.log(link.unshift('oi'));
+console.log(link.get(0));
+console.log(link.get(1));console.log(link.get(2));
+console.log(link.get(3));
