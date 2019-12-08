@@ -133,12 +133,20 @@ class SinglyLinkedList {
 
     return current;
   }
+
+  set (index, newValue) {
+    let foundNode = this.get(index);
+
+    if (foundNode) {
+      foundNode.val = newValue;
+      return true;
+    }
+    
+    return false;
+  }
 }
 
 let link = new SinglyLinkedList();
 link.push(1);
 link.push(10);
 link.push(15);
-console.log(link.get(0));
-console.log(link.get(1));console.log(link.get(2));
-console.log(link.get(3));
