@@ -191,6 +191,24 @@ class SinglyLinkedList {
     return removed;
   }
 
+  reverse () {
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+  
+    let previous = null;
+    let next;
+
+    while (current !== null) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+
+    return this;
+  }
+
   // For easier debugging
   print () {
     var arr = [];
