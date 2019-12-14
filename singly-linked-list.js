@@ -172,7 +172,7 @@ class SinglyLinkedList {
 
   remove (index) {
     if (index < 0 || index >= this.length) {
-      return false;
+      return undefined;
     }
 
     if (index === 0) {
@@ -190,15 +190,16 @@ class SinglyLinkedList {
 
     return removed;
   }
-}
 
-let link = new SinglyLinkedList();
-link.push(1);
-link.push(10);
-link.push(15);
-console.log(link.get(1));
-link.insert(1, 500);
-console.log(link.get(1));
-console.log(link.get(2));
-console.log(link.get(3));
+  // For easier debugging
+  print () {
+    var arr = [];
+    var current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
+  }
+}
 
