@@ -221,3 +221,7 @@ class SinglyLinkedList {
   }
 }
 
+
+// Linked Lists are used instead of arrays when inserting and deleting
+// data at the beginning are frequently required.
+// There's no built in indexes.
