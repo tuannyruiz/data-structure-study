@@ -8,10 +8,7 @@ function linearSearch (arr, val) {
     return -1;
 }
 
-let linearNumbers = [1, 15, 4, 6, 74, 23];
-console.log(linearSearch(linearNumbers, 55));
-console.log(linearSearch(linearNumbers, 6));
-
+// It only works for sorted arrays
 function binarySearch (arr, elem) {
     let start = 0;
     let end = arr.length - 1;
@@ -32,7 +29,3 @@ function binarySearch (arr, elem) {
 
     return -1;
 }
-
-let binaryNumbers = [1, 5, 6, 18, 22, 23, 60, 77, 82, 99];
-console.log(binarySearch(binaryNumbers, 60));
-console.log(binarySearch(binaryNumbers, 6));
